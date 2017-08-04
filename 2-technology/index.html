@@ -31,7 +31,15 @@
 
 <h1 id='2-technology'>2. Technology</h1>
 
-<p><em>Updated on August 4, 2017</em></p>
+<p><em>Updated on August 5, 2017</em></p>
+
+<ol>
+<li><a href='#2-1-revolutions'>Revolutions</a></li>
+<li><a href='#2-2-revolution-i-code'>Revolution I: Code</a></li>
+<li><a href='#2-3-revolution-ii-machine-learning'>Revolution II: Machine learning</a></li>
+<li><a href='#2-4-practise-and-theorems'>Practise and theorems</a></li>
+<li><a href='#2-5-decoding-a-magic-trick'>Decoding a magic trick</a></li>
+</ol>
 
 <p>Technology, the force that eats jobs, is nothing but ways of arranging things in the world so that humans need to do less, yet results will be better. In short, technology is being smart.</p>
 
@@ -39,7 +47,7 @@
 
 <p>What we call high-tech is fundamentally no different from simple technologies like wheel. There may be more moving parts, and the physical phenomena and mathematics exploited may be more exotic, yet it’s always about being smart. There is never magic at play; if there is a feeling of magic, it disappears at the moment you find out how the technology works.</p>
 
-<h2>2.1 Revolutions</h2>
+<h2 id='2-1-revolutions'>2.1 Revolutions</h2>
 
 <p>What determines whether a technology is revolutionary or not? The answer is, whether it solves a real problem of human life or not. Here are some real revolutions.</p>
 
@@ -72,7 +80,7 @@
 
 <p>Also, a third real revolution is coming. It is the revolution of distributed computing.</p>
 
-<h2>2.2 Revolution I: Code</h2>
+<h2 id='2-2-revolution-i-code'>2.2 Revolution I: Code</h2>
 
 <p>Technology is knowledge. As such it’s pure information, in principle. To actually use a technology, you need to physically change things in the world, and if we’re talking about traditional technology, doing so may be very expensive. You may need to solder electronic components on a circuit board, or glue pieces of wood together, or something like that.</p>
 
@@ -117,7 +125,61 @@ There really is just one software stack that expands and improves all the time.
 
 <pre><code>print('Hello World!')</code></pre>-->
 
-<h2>2.3 Revolution II: Machine learning</h2>
+<h2 id='2-3-revolution-ii-machine-learning'>2.3 Revolution II: Machine learning</h2>
+
+<p>When I grab Rubik’s Cube and solve it, people think I’m an exceptionally intelligent guy. Then I reveal that I’ve just memorized a few move sequences which I use like a machine, and they don’t think so anymore.</p>
+
+<!--<p>If someone solves Rubik’s Cube by just looking at it, we think he or she is an exceptionally intelligent person. If it is then revealed that he or she had memorized all the needed move sequences and just used them like a computer, the appreciation and perception of intelligence goes away.</p>-->
+
+<p>Intelligence is being capable of solving problems without instructions. It’s in a deep conflict with computer programming, since programming means writing precise instructions for computers. Building intelligent machines is notoriously difficult.</p>
+
+<p>We can skip this difficulty by building childlike machines, which then learn to solve problems by themselves. More precisely, we build a mathematical machine with many—like a billion—knobs, which is capable of doing a wide variety of things depending on the knob configuration. Most configurations lead to useless behaviour, yet some may make the machine do something that resembles intelligence.</p>
+
+<p>Mathematical results show that there are very simple mathematical machines that can do virtually anything provided there are enough knobs and that the knobs have been tuned correctly. The tuning, or teaching, can be done by generic optimization algorithms, which means methods for seeking parameter values that result in better and better performance.</p>
+
+<p>In other words, we write code, which contains precise instructions for learning how to get better at the task. “Better” must be defined precisely, which means that it must be possible to measure performance by single number. Machine learning is all about what can be measured numerically.</p>
+
+<p>Let’s take car driving as an example. The task is to keep the car on the road and go forward. We give our machine driver some sensory input, like car’s acceleration, speed and distance to the road shoulders, and the driver must decide how to turn the steering wheel and how much to give gas.</p>
+
+<p>First we let the driver act in a hastened rally simulator instead of real roads, so that the driver can learn quicker, without crushing real cars. Then we decide how to measure performance. A simple way could be to just count how many meters it manages to keep the car on the road. That could work, yet learning would be slow, and the result would probably be stupid driving on a speed that changes along the way.</p>
+
+<p>It would be wiser to compose a score for the last kilometers driven so that the stabler the drive is and the closer to the center of the lane the car has stayed, the better the score. That would make the AI driver to learn properly.</p>
+
+<p>The actual learning happens so that the driver drives the car and constantly monitors the score of the past kilometers. Once in the while the driver makes small random changes to the driving style (the knob configuration) and keeps track on how the changes affect the score. As it collects more experience, it starts to prefer changes that seem to result in better score in the long run. If everything has been done right, after enough kilometers the driving style has converged towards something reasonable, and we can say that the AI driver has learned to drive.</p>
+
+<h2 id='2-4-practise-and-theorems'>2.3 Practise and theorems</h2>
+
+<p>What I described above is called <em>reinforcement learning</em>. It is how humans, animals and whole communities and societies learn new ways to thrive. The fundamental elements are exploring new, unknown ways to act, of which most are obviously unfruitful, and exploiting the information brought by the performance score for moving towards more fruitful policies. There are also learning paradigms called <em>supervised learning</em> and <em>unsupervised learning</em>, which I’ll describe in a moment.</p>
+
+<!--<p>In machine learning there are also <em>supervised learning</em> and <em>unsupervised learning</em> They are not as capable as reinforcement learning, but they are easier to implement. Most successful real-world AI systems use one of them. In supervised learning the learning agent is shown examples and asked to imitate them, and in unsupervised learning the agent is shown data, and is asked to find some underlying structure from it.</p>-->
+
+<p>The amount of training needed increases exponentially?? as we increase the complexity of the problem. If we let the weather and driving conditions vary in the rally simulator, the machine driver must learn to detect when the situation changes and tweak the driving style appropriately. Learning that would take many orders of magnitude greater amount of training than learning a single, fixed way to drive, and lots of learning means lots of computer resources.</p>
+
+<p>I don’t know whether driving in different conditions is too complex task to learn for a machine. Anyway, if we add traffic, including bad, temperamental drivers, and ask to go from an address to another one instead of just going forward, we have created practically unlearnable task, since learning would take a billion times all the computer resources on Earth for the age of the entire Universe, or something like that.</p>
+
+<p>Complex tasks can be addressed by dividing the task into simpler sub-tasks that are learnable. We train several distinct drivers for different weathers and a weather detector to choose which driver to use, and so on. This is just ordinary engineering philosphy: big problems are nothing but a bunch of smaller problems.</p>
+
+<p>Of course, if we customize our system in that way, we can’t expect it to be useful for anything else than the problem we customized it for. This is a manifestation of the “<a href='https://en.wikipedia.org/wiki/No_free_lunch_in_search_and_optimization'>no free lunch theorem</a>,” which states roughly that there is no universal machine learning system that would learn all tasks quickly. Speed can only be achieved by customization.</p>
+
+<p>Humans and other animals are highly specified learners. Walking, talking and our complex set of emotion are all skills we learn during our first years, yet the ability to learn them is encoded in our DNA molecule. It has taken millions of years for evolution to find the genes that enable us to learn those things. It is physically impossible to teach a chimpanzee to be empathic in a humane way.</p>
+
+<p>The no free lunch theorem is why people talk about deep neural networks today. First, “neural network” in machine learning refers to a mathematical machine which has been inspired by biological brains. A brain is a network of neurons connected to each other. A neuron computes chemically the weighted average of its inputs, applies a simple activation function (something like tanh(<i>x</i>) ??), and outputs the result. The weight factors are the knobs to be tuned in learning.</p>
+
+<p>The <a href='https://en.wikipedia.org/wiki/Universal_approximation_theorem'>universal approximation theorem</a> states that a particular kind of neural network can approximate any continuous function that maps a bunch of numbers into a bunch of numbers. It can there fore do anything, so to speak. Anyway, such a simple neural network is difficult to teach to do most interesting problems. It has been noticed that by cascading several simple networks as a multilayer network, of course in carefully chosen, problem-specific ways, complex tasks can be made learnable. The word “deep” means that there are several (for example ten) stacked layers in a network.</p>
+
+<p>Learning machine learning is not as difficult as it sounds like. Common sense takes far, and the math is much easier than in physics, for example. There are great web resources available: <a href='http://www.deeplearningbook.org/'><cite>Deep Learning</cite></a> by Goodfellow, Bengio and Courville teaches modern supervised and unsupervised learning, and <a href='http://incompleteideas.net/sutton/book/the-book.html'><cite>Reinforcement Learning: An Introduction</cite></a> by Sutton and Barto teaches modern reinforcement learning.<p>
+
+<p>Machine learning also contributes to the code revolution: there are <a href='https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software'>numerous</a> free libraries for writing machine learning applications.</p>
+
+<h2 id='2-5-decoding-a-magic-trick'>2.5 Decoding a magic trick</h2>
+
+<h3>Supervised learning</h3>
+
+<h3>Unsupervised learning</h3>
+
+<h3>Reinforcement learning</h3>
+
+<h2>2.6 Machines will learn our jobs</h2>
 
 <h2>2.3 Revolution III: Distributed computing</h2>
 
