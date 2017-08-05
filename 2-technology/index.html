@@ -31,7 +31,7 @@
 
 <h1 id='2-technology'>2. Technology</h1>
 
-<p><em>Updated on August 5, 2017</em></p>
+<p><em>Updated on August 6, 2017</em></p>
 
 <ol>
 <li><a href='#2-1-revolutions'>Revolutions</a></li>
@@ -139,7 +139,7 @@ There really is just one software stack that expands and improves all the time.
 
 <p>In other words, we write code, which contains precise instructions for learning how to get better at the task. “Better” must be defined precisely, which means that it must be possible to measure performance by single number. Machine learning is all about what can be measured numerically.</p>
 
-<p>Let’s take car driving as an example. The task is to keep the car on the road and go forward. We give our machine driver some sensory input, like car’s acceleration, speed and distance to the road shoulders, and the driver must decide how to turn the steering wheel and how much to give gas.</p>
+<p>Let’s take car driving as an example. (CHANGE CAR DRIVING TO WALKING) The task is to keep the car on the road and go forward. We give our machine driver some sensory input, like car’s acceleration, speed and distance to the road shoulders, and the driver must decide how to turn the steering wheel and how much to give gas.</p>
 
 <p>First we let the driver act in a hastened rally simulator instead of real roads, so that the driver can learn quicker, without crushing real cars. Then we decide how to measure performance. A simple way could be to just count how many meters it manages to keep the car on the road. That could work, yet learning would be slow, and the result would probably be stupid driving on a speed that changes along the way.</p>
 
@@ -169,15 +169,37 @@ There really is just one software stack that expands and improves all the time.
 
 <p>Learning machine learning is not as difficult as it sounds like. Common sense takes far, and the math is much easier than in physics, for example. There are great web resources available: <a href='http://www.deeplearningbook.org/'><cite>Deep Learning</cite></a> by Goodfellow, Bengio and Courville teaches modern supervised and unsupervised learning, and <a href='http://incompleteideas.net/sutton/book/the-book.html'><cite>Reinforcement Learning: An Introduction</cite></a> by Sutton and Barto teaches modern reinforcement learning.<p>
 
-<p>Machine learning also contributes to the code revolution: there are <a href='https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software'>numerous</a> free libraries for writing machine learning applications.</p>
+<p>Machine learning also contributes to the code revolution: there are <a href='https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software'>numerous</a> free libraries for writing machine learning applications. These include TensorFlow, the cutting-edge AI library used and developed by Google.</p>
 
 <h2 id='2-5-decoding-a-magic-trick'>2.5 Decoding a magic trick</h2>
 
-<h3>Supervised learning</h3>
+<p>Artificial intelligence is a thoroughly mystified subject. The reason is obvious: at first glance, the results of modern AI experiments look like that a supernatural spirit has taken over a computer—at least if someone else happens to suggest such a pseudo-explanation.</p>
 
-<h3>Unsupervised learning</h3>
+<p>I must confess that I’ve been terrified by artificial intelligence in the past. That was the reason I started learning AI, as I wanted to work out my obviously irrational emotional state. I found a solid theory that makes perfect sense and leaves no room for mysticism. It’s now evident that if I had only made my own conclusions, I would never have been terrified. My irrational emotional state was crafted by tabloids and statements by corrupt AI experts, who want the subject to remain mysterious, as it helps them to maintain a status of god.</p>
 
-<h3>Reinforcement learning</h3>
+<p>It’s the same as stage magic. A magician performs a trick, which seems impossible, and by his or her body language, words and clothing makes the audience feel a presence of the supernatural. Then someone ruins the trick by explaining it, and the supernatural disappears. Of course! How could I be so stupid.</p>
+
+<p>I’ll now ruin some AI tricks. First, a <a href='http://cs.stanford.edu/people/karpathy/deepimagesent/'>machine that explains what happens in a picture</a> (2015). For example, there’s a picture in which a man in black shirt is playing guitar, and the machine writes, “man in black shirt is playing guitar.” Obviously, there’s a supernatural spirit grown inside the machine, consciously trying to prove humans it, or he, or she understands.</p>
+
+<p>The trick is that they used supervised learning and huge sets of images with labels written by humans for training. For example the <a href='http://mscoco.org/'>COCO</a> dataset they used contains 2.5 million labeled instances in 328 thousand images. It took 70,000 hours of human work to create the dataset.</p>
+
+<p>So the machine does not understand what the images contain. Instead, its parameter configuration contains information of typical shapes in the pictures and the words people use for describing them. Errors in <a href='http://cs.stanford.edu/people/karpathy/deepimagesent/generationdemo/'>captions written by the machine</a> reveal that the machine is just a machine: for a picture portraying a baseball cap it writes “a pair of scissors with a pair of scissors.”</p>
+
+<p>This kind of AI copies the knowledge that is included in the training examples. The same principle is used for training machines to create art. Of course, such machines don’t create real art, since art is expressing emotions, which the machines trained that way don’t have.</p>
+
+<p>Second, a machine that the <cite>Wired</cite> magazine <a href='https://www.wired.com/2012/06/google-x-neural-network/'>described</a> on June 26, 2012 as following:</p>
+
+<blockquote>When computer scientists at Google’s mysterious X lab built a neural network of 16,000 computer processors with one billion connections and let it browse YouTube, it did what many web users might do—it began to look for cats.</blockquote>
+
+<p><a href='https://arxiv.org/abs/1112.6209'>The research paper</a> explains what really happened. The researchers used unsupervised training and a deep so-called sparse autoencoder network, which they trained using 10 milloin random screenshots of YouTube videos. “Autoencoder” means a network, which is supposed to output almost the same data as is shown to its inputs, and “sparse” means that in the middle layers only some neurons output a non-zero value. Technically, the performance measure is a combination of how close the output is the input and how close to zero most middle neurons are.</p>
+
+<p>The idea of sparse autoencoder is to compress the data that goes through it. As the network is trained, individual middle neurons converge to indicate the presence of different features that occur in the data, while the rest of the network learns to reconstruct those features. In the experiment one of the middle neurons converged to correlate with the presence of a cat with 74.8% accuracy. There was also a neuron that detected human faces with 81.7% accuracy and a neuron that detected human bodies with 76.7% accuracy. The obvious explanation is that cats, human faces and human bodies are common features of YouTube videos.</p>
+
+<p><cite>Wired</cite> partly explains this later in their article. I quoted its first paragraph, because it’s a good example of a mystifying unexplanation that pollute statements about artificial intelligence.</p>
+
+<p>Then, third and final trick: a <a href='https://arxiv.org/abs/1312.5602'>machine that plays Atari 2600</a> (2013). Researchers used reinforcement learning to train a deep neural network with screen pixels fed to its inputs and the game controller connected to its outputs to play seven old Atari 2600 video games (although not at the same time; the network had to be trained separately for each game). The machine beat a human expert in three games: Breakout, Enduro and Pong.</p>
+
+<p>The performance measure op: the ordinary score of the game that 
 
 <h2>2.6 Machines will learn our jobs</h2>
 
