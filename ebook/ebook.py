@@ -46,7 +46,7 @@ def main():
     index = f.read()
     f.close
     stuff = str(links(content(toc(index))))
-    commit = '<pre><code>' + CommitId() + '</code></pre>'
+    commit = "<pre><code style='font-size:80%;'>" + CommitId() + '</code></pre>'
     stuff = stuff.replace('<!--CommitIdGoesHere-->',commit)
     #stuff.replace('heading','commit')
     print(stuff)
