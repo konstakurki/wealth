@@ -144,3 +144,16 @@ height:100%;
 .fig {
 font-style:italic;
 }
+
+.attention {
+animation:color_change 3s infinite;
+font-size:180%;
+}
+
+@keyframes color_change {
+0% { color:blue; }
+20% { color:violet; }
+40% { color:red; }
+60% { color:orange; }
+80% { color:yellow; }
+100% { color:green; }
