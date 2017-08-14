@@ -21,7 +21,8 @@ def content(tableofcont):
     cont = "<meta charset='utf-8'>" + str(BS(open('./index.html'),'html5lib').main)
     for i in tableofcont:
         ch = BS(open(i),'html5lib').main
-        cont = cont + str(lowerheaders(ch))[6:-7]
+        #cont = cont + str(lowerheaders(ch))[6:-7]
+        cont = cont + str(ch)[6:-7]
     return cont
 
 def links(content):
